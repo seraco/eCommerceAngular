@@ -2,6 +2,7 @@ import { Location } from '@angular/common';
 import { TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Router } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { CheckoutComponent } from './checkout/checkout.component';
@@ -19,7 +20,10 @@ describe('AppRoutingModule', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule.withRoutes(routes)],
+      imports: [
+        ReactiveFormsModule,
+        RouterTestingModule.withRoutes(routes),
+      ],
       declarations: [
         AppComponent,
         CheckoutComponent,
