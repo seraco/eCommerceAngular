@@ -6,10 +6,12 @@ import { PRODUCTS } from './mock-products';
 describe('ProductsService', () => {
   let service: ProductsService;
 
-  beforeEach(() => TestBed.configureTestingModule({}));
+  beforeEach(() => {
+    TestBed.configureTestingModule({});
+    service = TestBed.get(ProductsService);
+  });
 
   it('should be created', () => {
-    service = TestBed.get(ProductsService);
     expect(service).toBeTruthy();
   });
 
