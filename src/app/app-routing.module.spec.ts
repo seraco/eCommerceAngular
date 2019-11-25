@@ -3,6 +3,9 @@ import { TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Router } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
 
 import { AppComponent } from './app.component';
 import { CheckoutComponent } from './checkout/checkout.component';
@@ -23,6 +26,9 @@ describe('AppRoutingModule', () => {
       imports: [
         ReactiveFormsModule,
         RouterTestingModule.withRoutes(routes),
+        MatFormFieldModule,
+        MatInputModule,
+        MatCardModule,
       ],
       declarations: [
         AppComponent,

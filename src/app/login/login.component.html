@@ -1,8 +1,13 @@
-<form [formGroup]="loginForm" (ngSubmit)="login()">
-  <div>
-    <label for="email">Email</label>
-    <input id="email" type="text" formControlName="email">
-  </div>
+<div class="container">
+  <mat-card class="card">
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email">
+        <mat-hint>Enter your email</mat-hint>
+      </mat-form-field>
 
-  <button type="submit">Next</button>
-</form>
+      <button mat-stroked-button class="button" type="submit">Next</button>
+    </form>
+  </mat-card>
+</div>

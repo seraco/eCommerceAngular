@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
 
 import { LoginComponent } from './login.component';
 
@@ -14,6 +18,10 @@ describe('LoginComponent', () => {
       imports: [
         ReactiveFormsModule,
         RouterTestingModule,
+        BrowserAnimationsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatCardModule,
       ],
     })
     .compileComponents();
