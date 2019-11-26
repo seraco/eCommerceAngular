@@ -1,10 +1,9 @@
 .button {
-  margin-left: 1em;
+  margin-left: 1rem;
 }
 
 .container {
   align-items: center;
-  background-color: whitesmoke;
   display: flex;
   flex-direction: column;
   height: 100vh;

@@ -1,1 +1,16 @@
-<p>products-list works!</p>
+<div class="products">
+  <mat-card
+    *ngFor="let product of products"
+    class="product-item"
+    (click)="handleProductClick(product)">
+    <div class="row-with-two-elements">
+      <div class="name">{{ product.name }}</div>
+      <div class="number-items">{{ product.number_items }} items</div>
+    </div>
+    <img class="image" [src]="product.image_url" />
+    <div class="row-with-two-elements">
+      <div class="price">{{ product.price }} EUR</div>
+      <button mat-stroked-button class="button" type="submit">Buy</button>
+    </div>
+  </mat-card>
+</div>
