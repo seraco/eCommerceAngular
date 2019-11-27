@@ -12,7 +12,7 @@ export const PRODUCTS: Product[] = [
   {
     description: 'Here we have a round potato',
     id: 2,
-    image_url: 'https://target.scene7.com/is/image/Target/GUEST_c58aff39-9071-4f1b-a270-5d00f41a0db4?wid=488&hei=488&fmt=pjpeg',
+    image_url: 'https://steamuserimages-a.akamaihd.net/ugc/964220282097470501/53FF9B9E6D903438773B8BA17574FBC90560BA2D/',
     name: 'Potato',
     number_items: 2,
     price: 20,

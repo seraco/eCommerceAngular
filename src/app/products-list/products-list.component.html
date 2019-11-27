@@ -1,6 +1,6 @@
-<div *ngIf="products$ | async" class="products">
+<div class="products">
   <mat-card
-    *ngFor="let product of products$ | async"
+    *ngFor="let product of getProducts()"
     class="product-item"
     (click)="handleProductClick(product)">
     <div class="row-with-two-elements">
@@ -10,7 +10,13 @@
     <img class="image" [src]="product.image_url" />
     <div class="row-with-two-elements">
       <div class="price">{{ product.price }} EUR</div>
-      <button mat-stroked-button class="button" type="submit">Buy</button>
+      <button
+        mat-stroked-button
+        (click)="$event.stopPropagation();handleBuyClick(product)"
+        class="button"
+        type="submit">
+        Buy
+      </button>
     </div>
   </mat-card>
 </div>

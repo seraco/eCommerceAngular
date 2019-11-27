@@ -1,23 +1,13 @@
 import { TestBed } from '@angular/core/testing';
-import { HttpClientModule } from '@angular/common/http';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { ProductsService } from './products.service';
-import { InMemoryDataService }  from './in-memory-data.service';
 import { PRODUCTS } from './mock-products';
 
 describe('ProductsService', () => {
   let service: ProductsService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      imports: [
-        HttpClientModule,
-        HttpClientInMemoryWebApiModule.forRoot(
-          InMemoryDataService, { dataEncapsulation: false }
-        ),
-      ],
-    });
+    TestBed.configureTestingModule({});
     service = TestBed.get(ProductsService);
   });
 
@@ -25,10 +15,23 @@ describe('ProductsService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('#getProducts should return products', (done: DoneFn) => {
-    service.getProducts().subscribe(products => {
-      expect(products).toEqual(PRODUCTS);
-      done();
-    });
+  it('#resetProductsListWithNewProducts should set products', () => {
+    service.resetProductsListWithNewProducts(PRODUCTS);
+    expect(service.getProducts()).toEqual(PRODUCTS);
+  });
+
+  it('#introduceInShoppingCart should decrease quantity of products', () => {
+    service.resetProductsListWithNewProducts(PRODUCTS);
+    let firstProduct = service.getProducts()[0];
+    service.introduceInShoppingCart(firstProduct);
+    let productQuantity = service.getProducts()[0].number_items;
+    expect(productQuantity).toEqual(firstProduct.number_items - 1);
+  });
+
+  it('#introduceInShoppingCart should quantity in cart', () => {
+    service.resetProductsListWithNewProducts(PRODUCTS);
+    let firstProduct = service.getProducts()[0];
+    service.introduceInShoppingCart(firstProduct);
+    expect(service.getCart()[firstProduct.id].number_items).toEqual(1);
   });
 });

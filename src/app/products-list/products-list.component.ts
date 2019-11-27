@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 
+import { ApiClientService } from '../api-client.service';
 import { ProductsService } from '../products.service';
 import { Product } from '../product';
 
@@ -10,15 +10,27 @@ import { Product } from '../product';
   styleUrls: ['./products-list.component.css']
 })
 export class ProductsListComponent implements OnInit {
-  products$: Observable<Product[]>;
-
-  constructor(private productsService: ProductsService) { }
+  constructor(
+    private apiClient: ApiClientService,
+    private productsService: ProductsService,
+  ) { }
 
   ngOnInit() {
-    this.products$ = this.productsService.getProducts();
+    this.apiClient.getProducts().subscribe(products => {
+      this.productsService.resetProductsListWithNewProducts(products);
+    })
+  }
+
+  getProducts() {
+    return this.productsService.getProducts();
+  }
+  
+  handleBuyClick(product: Product) {
+    console.log('BUY', product);
+    this.productsService.introduceInShoppingCart(product);
   }
 
   handleProductClick(product: Product) {
-    this.productsService.buyProduct(product.id);
+    console.log('PRODUCT', product);
   }
 }
