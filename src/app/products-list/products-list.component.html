@@ -11,10 +11,11 @@
     <div class="row-with-two-elements">
       <div class="price">{{ product.price }} EUR</div>
       <button
-        mat-stroked-button
+        mat-flat-button
+        [disabled]="product.number_items === 0"
         (click)="$event.stopPropagation();handleBuyClick(product)"
         class="button"
-        type="submit">
+        color="accent">
         Buy
       </button>
     </div>

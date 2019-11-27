@@ -9,17 +9,8 @@ import { Product } from '../product';
   templateUrl: './products-list.component.html',
   styleUrls: ['./products-list.component.css']
 })
-export class ProductsListComponent implements OnInit {
-  constructor(
-    private apiClient: ApiClientService,
-    private productsService: ProductsService,
-  ) { }
-
-  ngOnInit() {
-    this.apiClient.getProducts().subscribe(products => {
-      this.productsService.resetProductsListWithNewProducts(products);
-    })
-  }
+export class ProductsListComponent {
+  constructor(private productsService: ProductsService) { }
 
   getProducts() {
     return this.productsService.getProducts();

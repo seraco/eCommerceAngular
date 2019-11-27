@@ -12,7 +12,11 @@ export class ProductsService {
   private cart: { [id: number]: Product } = {};
   private products: Product[] = [];
 
-  constructor() { }
+  constructor(private apiClient: ApiClientService) {
+    this.apiClient.getProducts().subscribe(products => {
+      this.resetProductsListWithNewProducts(products);
+    })
+  }
 
   getCart(): { [id: number]: Product } {
     return this.cart;
