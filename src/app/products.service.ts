@@ -1,17 +1,20 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, Subscriber } from 'rxjs';
 
 import { Product } from './product';
-import { PRODUCTS } from './mock-products';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
+  private productsUrl = 'api/products';
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  buyProduct(productId: number): void { }
 
   getProducts(): Observable<Product[]> {
-    return of(PRODUCTS);
+    return this.http.get<Product[]>(this.productsUrl)
   }
 }

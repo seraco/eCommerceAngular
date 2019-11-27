@@ -1,6 +1,6 @@
-<div class="products">
+<div *ngIf="products$ | async" class="products">
   <mat-card
-    *ngFor="let product of products"
+    *ngFor="let product of products$ | async"
     class="product-item"
     (click)="handleProductClick(product)">
     <div class="row-with-two-elements">
