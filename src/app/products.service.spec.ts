@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { ProductsService } from './products.service';
 import { PRODUCTS } from './mock-products';
@@ -7,7 +8,9 @@ describe('ProductsService', () => {
   let service: ProductsService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [ HttpClientTestingModule ],
+    });
     service = TestBed.get(ProductsService);
   });
 
@@ -33,5 +36,17 @@ describe('ProductsService', () => {
     let firstProduct = service.getProducts()[0];
     service.introduceInShoppingCart(firstProduct);
     expect(service.getCart()[firstProduct.id].number_items).toEqual(1);
+  });
+
+  it('#getTotalCartItems() should return total number of items in cart', () => {
+    service.resetProductsListWithNewProducts(PRODUCTS);
+    expect(service.getTotalCartItems()).toEqual(0);
+    let firstProduct = service.getProducts()[0];
+    service.introduceInShoppingCart(firstProduct);
+    expect(service.getTotalCartItems()).toEqual(1);
+    service.introduceInShoppingCart(firstProduct);
+    expect(service.getTotalCartItems()).toEqual(2);
+    service.introduceInShoppingCart(firstProduct);
+    expect(service.getTotalCartItems()).toEqual(3);
   });
 });
