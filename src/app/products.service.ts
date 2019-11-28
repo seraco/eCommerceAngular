@@ -26,6 +26,12 @@ export class ProductsService {
     return this.products;
   }
 
+  getTotalCartItems(): number {
+    return Object.values(this.cart).reduce((count, val) => {
+      return count + val.number_items;
+    }, 0);
+  }
+
   introduceInShoppingCart(product: Product) {
     this.products = this.products.map(el => el.id === product.id ? (
       { ...el, number_items: el.number_items > 0 ? el.number_items - 1 : 0 }
@@ -38,7 +44,6 @@ export class ProductsService {
         ? this.cart[product.id].number_items + 1
         : 1,
     };
-    console.log('CART', this.cart);
   }
 
   resetProductsListWithNewProducts(products: Product[]) {

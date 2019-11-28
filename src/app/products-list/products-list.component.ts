@@ -17,7 +17,6 @@ export class ProductsListComponent {
   }
   
   handleBuyClick(product: Product) {
-    console.log('BUY', product);
     this.productsService.introduceInShoppingCart(product);
   }
 

@@ -1,0 +1,40 @@
+button {
+  margin-left: 1rem;
+}
+
+.fill-center {
+  flex: 1 1 auto;
+}
+
+img {
+  height: 28px;
+  margin-right: 0.2rem;
+  width: 28px;
+}
+
+.main-content-container {
+  padding-top: 3.7rem;
+}
+
+mat-sidenav {
+  padding-top: 3.7rem;
+}
+
+mat-sidenav-container {
+  height: 100vh;
+  overflow: scroll;
+}
+
+mat-toolbar {
+  align-items: center;
+  display: flex;
+  height: 3.7rem;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+
+.title {
+  margin-right: 0.5rem;
+}

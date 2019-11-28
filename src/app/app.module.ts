@@ -14,6 +14,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { MatBadgeModule } from '@angular/material/badge';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +25,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { LoginComponent } from './login/login.component';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { InMemoryDataService }  from './in-memory-data.service';
+import { NavigationComponent } from './navigation/navigation.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { InMemoryDataService }  from './in-memory-data.service';
     ShoppingCartComponent,
     CheckoutComponent,
     LoginComponent,
-    UserInfoComponent
+    UserInfoComponent,
+    NavigationComponent
   ],
   imports: [
     AppRoutingModule,
@@ -54,6 +57,7 @@ import { InMemoryDataService }  from './in-memory-data.service';
     FlexLayoutModule,
     MatIconModule,
     MatListModule,
+    MatBadgeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
