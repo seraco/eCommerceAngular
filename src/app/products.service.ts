@@ -18,8 +18,8 @@ export class ProductsService {
     })
   }
 
-  getCart(): { [id: number]: Product } {
-    return this.cart;
+  getCart(): Product[] {
+    return Object.values(this.cart);
   }
 
   getProducts(): Product[] {
@@ -27,9 +27,17 @@ export class ProductsService {
   }
 
   getTotalCartItems(): number {
-    return Object.values(this.cart).reduce((count, val) => {
+    return this.getCart().reduce((count, val) => {
       return count + val.number_items;
     }, 0);
+  }
+
+  getTotalCartPrice(): number {
+    let total = 0;
+    this.getCart().forEach(el => {
+      total += el.number_items * el.price
+    });
+    return total;
   }
 
   introduceInShoppingCart(product: Product) {

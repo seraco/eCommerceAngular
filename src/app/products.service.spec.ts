@@ -35,7 +35,7 @@ describe('ProductsService', () => {
     service.resetProductsListWithNewProducts(PRODUCTS);
     let firstProduct = service.getProducts()[0];
     service.introduceInShoppingCart(firstProduct);
-    expect(service.getCart()[firstProduct.id].number_items).toEqual(1);
+    expect(service.getCart()[0].number_items).toEqual(1);
   });
 
   it('#getTotalCartItems() should return total number of items in cart', () => {
@@ -48,5 +48,17 @@ describe('ProductsService', () => {
     expect(service.getTotalCartItems()).toEqual(2);
     service.introduceInShoppingCart(firstProduct);
     expect(service.getTotalCartItems()).toEqual(3);
+  });
+
+  it('#getTotalCartPrice() should return total price of items in cart', () => {
+    service.resetProductsListWithNewProducts(PRODUCTS);
+    expect(service.getTotalCartPrice()).toEqual(0);
+    let firstProduct = service.getProducts()[0];
+    service.introduceInShoppingCart(firstProduct);
+    expect(service.getTotalCartPrice()).toEqual(10);
+    service.introduceInShoppingCart(firstProduct);
+    expect(service.getTotalCartPrice()).toEqual(20);
+    service.introduceInShoppingCart(firstProduct);
+    expect(service.getTotalCartPrice()).toEqual(30);
   });
 });
