@@ -16,6 +16,14 @@ img {
   padding-top: 3.7rem;
 }
 
+[mat-list-item] {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+  margin-right: 1rem;
+}
+
 mat-sidenav {
   padding-top: 3.7rem;
 }
