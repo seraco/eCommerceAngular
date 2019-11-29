@@ -22,7 +22,6 @@ import { ProductsListComponent } from './products-list/products-list.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { LoginComponent } from './login/login.component';
-import { UserInfoComponent } from './user-info/user-info.component';
 import { InMemoryDataService }  from './in-memory-data.service';
 import { NavigationComponent } from './navigation/navigation.component';
 import { ProductsTableComponent } from './products-table/products-table.component';
@@ -34,7 +33,6 @@ import { ProductsTableComponent } from './products-table/products-table.componen
     ShoppingCartComponent,
     CheckoutComponent,
     LoginComponent,
-    UserInfoComponent,
     NavigationComponent,
     ProductsTableComponent
   ],

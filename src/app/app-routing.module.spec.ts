@@ -13,7 +13,6 @@
 // import { NavigationComponent } from './navigation/navigation.component';
 // import { ProductsListComponent } from './products-list/products-list.component';
 // import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
-// import { UserInfoComponent } from './user-info/user-info.component';
 // import { routes } from './app-routing.module';
 
 // describe('AppRoutingModule', () => {
@@ -33,7 +32,6 @@
 //         NavigationComponent,
 //         ProductsListComponent,
 //         ShoppingCartComponent,
-//         UserInfoComponent,
 //       ]
 //     });
 

@@ -1,5 +1,10 @@
-<div *ngIf="getCart().length" class="container">
-  <app-products-table [products]="getCart()" [totalPrice]="getTotal()">
+<div *ngIf="productsService.getCart().length" class="container">
+  <h3>Shipping Address</h3>
+  <h3>Payment Method</h3>
+  <h3>Products</h3>
+  <app-products-table
+    [products]="productsService.getCart()"
+    [totalPrice]="productsService.getTotalCartPrice()">
   </app-products-table>
   <div class="button-container">
     <button
