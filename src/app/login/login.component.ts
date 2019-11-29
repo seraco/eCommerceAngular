@@ -31,6 +31,7 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       if (this.loginForm.value.email === this.userService.getUser().email) {
         this.router.navigateByUrl('/products');
+        this.userService.authenticateUser();
       }
       this.loginForm.reset();
     }

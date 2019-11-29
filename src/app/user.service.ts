@@ -7,6 +7,16 @@ import { USER } from './mock-user';
   providedIn: 'root'
 })
 export class UserService {
+  authenticated: boolean = false;
+
+  authenticateUser() {
+    this.authenticated = true;
+  }
+
+  isAuthenticated(): boolean {
+    return this.authenticated;
+  }
+
   getUser(): User {
     return USER;
   }
