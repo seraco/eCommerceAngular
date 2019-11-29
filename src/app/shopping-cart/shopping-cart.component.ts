@@ -8,13 +8,10 @@ import { Product } from '../product';
   templateUrl: './shopping-cart.component.html',
   styleUrls: ['./shopping-cart.component.css']
 })
-export class ShoppingCartComponent implements OnInit {
+export class ShoppingCartComponent {
   displayedColumns: string[] = ['name', 'quantity', 'price'];
 
   constructor(private productsService: ProductsService) { }
-
-  ngOnInit() {
-  }
 
   getCart(): Product[] {
     return Object.values(this.productsService.getCart())

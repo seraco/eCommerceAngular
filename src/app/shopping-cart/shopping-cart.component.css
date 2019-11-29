@@ -6,11 +6,3 @@
 .container {
   margin: 1rem;
 }
-
-[mat-footer-cell] {
-  font-weight: 500;
-}
-
-table {
-  width: 100%;
-}

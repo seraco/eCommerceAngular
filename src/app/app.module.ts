@@ -25,6 +25,7 @@ import { LoginComponent } from './login/login.component';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { InMemoryDataService }  from './in-memory-data.service';
 import { NavigationComponent } from './navigation/navigation.component';
+import { ProductsTableComponent } from './products-table/products-table.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { NavigationComponent } from './navigation/navigation.component';
     CheckoutComponent,
     LoginComponent,
     UserInfoComponent,
-    NavigationComponent
+    NavigationComponent,
+    ProductsTableComponent
   ],
   imports: [
     AppRoutingModule,
