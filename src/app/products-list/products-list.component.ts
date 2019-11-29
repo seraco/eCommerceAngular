@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ApiClientService } from '../api-client.service';
 import { ProductsService } from '../products.service';
 import { Product } from '../product';
 
@@ -18,9 +17,5 @@ export class ProductsListComponent {
   
   handleBuyClick(product: Product) {
     this.productsService.introduceInShoppingCart(product);
-  }
-
-  handleProductClick(product: Product) {
-    console.log('PRODUCT', product);
   }
 }

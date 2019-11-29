@@ -6,3 +6,15 @@
 .container {
   margin: 1rem;
 }
+
+.confirmation-header {
+  margin-bottom: 0.1rem;
+}
+
+.confirmation-number {
+  margin-top: 0.1rem;
+}
+
+mat-form-field {
+  width: 100%;
+}

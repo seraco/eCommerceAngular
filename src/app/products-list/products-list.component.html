@@ -1,8 +1,7 @@
 <div class="products">
   <mat-card
     *ngFor="let product of getProducts()"
-    class="product-item"
-    (click)="handleProductClick(product)">
+    class="product-item">
     <div class="row-with-two-elements">
       <div class="name">{{ product.name }}</div>
       <div class="number-items">{{ product.number_items }} items</div>

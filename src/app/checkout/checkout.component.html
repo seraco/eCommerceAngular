@@ -1,16 +1,38 @@
 <div *ngIf="productsService.getCart().length" class="container">
-  <h3>Shipping Address</h3>
-  <h3>Payment Method</h3>
-  <h3>Products</h3>
-  <app-products-table
-    [products]="productsService.getCart()"
-    [totalPrice]="productsService.getTotalCartPrice()">
-  </app-products-table>
-  <div class="button-container">
-    <button
-      mat-flat-button
-      color="accent">
-      Place Order
-    </button>
+  <div *ngIf="!productsService.getConfirmation()">
+    <h3>Shipping Address</h3>
+    <form [formGroup]="addressForm">
+      <mat-form-field appearance="outline">
+        <mat-label>Address</mat-label>
+        <mat-select formControlName="address">
+          <mat-option
+            *ngFor="let address of userService.getUser().addresses"
+            [value]="address.id">
+            {{ address.thoroughfare }},
+            {{ address.postal_code }}
+            {{ address.locality }},
+            {{ address.country }},
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+    <h3>Products</h3>
+    <app-products-table
+      [products]="productsService.getCart()"
+      [totalPrice]="productsService.getTotalCartPrice()">
+    </app-products-table>
+    <div class="button-container">
+      <button
+        mat-flat-button
+        (click)="processOrder()"
+        color="accent"
+        [disabled]="addressForm.value.address === null">
+        Place Order
+      </button>
+    </div>
+  </div>
+  <div *ngIf="productsService.getConfirmation()">
+    <h3 class="confirmation-header">Your confirmation ID</h3>
+    <h5 class="confirmation-number">{{ productsService.getConfirmation() }}</h5>
   </div>
 </div>

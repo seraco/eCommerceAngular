@@ -10,7 +10,7 @@ import { User } from '../user';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   loginForm: FormGroup;
   user: User;
 
@@ -27,13 +27,9 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-    this.userService.getUser().subscribe(user => this.user = user);
-  }
-
   login() {
     if (this.loginForm.valid) {
-      if (this.loginForm.value.email === this.user.email) {
+      if (this.loginForm.value.email === this.userService.getUser().email) {
         this.router.navigateByUrl('/products');
       }
       this.loginForm.reset();

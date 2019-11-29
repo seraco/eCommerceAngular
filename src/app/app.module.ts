@@ -15,6 +15,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatSelectModule } from '@angular/material/select';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -56,6 +57,7 @@ import { ProductsTableComponent } from './products-table/products-table.componen
     MatIconModule,
     MatListModule,
     MatBadgeModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

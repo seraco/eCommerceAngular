@@ -10,6 +10,7 @@ import { Product } from './product';
 })
 export class ProductsService {
   private cart: { [id: number]: Product } = {};
+  private confirmation = '';
   private products: Product[] = [];
 
   constructor(private apiClient: ApiClientService) {
@@ -20,6 +21,10 @@ export class ProductsService {
 
   getCart(): Product[] {
     return Object.values(this.cart);
+  }
+
+  getConfirmation(): string {
+    return this.confirmation;
   }
 
   getProducts(): Product[] {
@@ -52,6 +57,17 @@ export class ProductsService {
         ? this.cart[product.id].number_items + 1
         : 1,
     };
+  }
+
+  processOrder(address: string) {
+    this.apiClient.buyProducts(this.getCart()).subscribe(() => {
+      this.confirmation = (
+        Math.random()
+          .toString(36)
+          .substring(2, 15)
+          .toUpperCase()
+      );
+    });
   }
 
   resetProductsListWithNewProducts(products: Product[]) {
